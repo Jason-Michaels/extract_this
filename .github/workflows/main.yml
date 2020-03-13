@@ -17,7 +17,8 @@ jobs:
       run: |
         mkdir -p ./frontend/mysite.io/public
         #cp index.html ./frontend/mysite.io/public
-        python3 -c "import sys; print(sys.version)"
+        pip3 install pandas
+        python3 -c "import pandas as pd; ex_data = pd.read_csv(url); ex_data.head()"
     - name: Deploy to GH Pages
       uses: peaceiris/actions-gh-pages@v2.5.0
       env: 

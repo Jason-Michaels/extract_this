@@ -17,7 +17,7 @@ jobs:
       run: |
         mkdir -p ./frontend/mysite.io/public
         #cp index.html ./frontend/mysite.io/public
-        python -c "import sys; print(sys.version)"
+        python3 -c "import sys; print(sys.version)"
     - name: Deploy to GH Pages
       uses: peaceiris/actions-gh-pages@v2.5.0
       env: 

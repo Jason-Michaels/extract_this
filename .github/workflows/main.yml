@@ -18,7 +18,11 @@ jobs:
         mkdir -p ./frontend/mysite.io/public
         #cp index.html ./frontend/mysite.io/public
         pip3 install pandas
-        python3 -c "import pandas as pd; ex_data = pd.read_csv('https://unplanned.co.za/data.csv'); print(ex_data.head())" >> output.json
+        python3 -c ^
+        More? "import pandas as pd; ^
+        More? ex_data = pd.read_csv('https://unplanned.co.za/data.csv', names=['dates', 'unplanned', 'planned'], header=0); ^
+        More? ex_data['planned'] = df['planned'].fillna(0); ^ 
+        More? print(ex_data.head())" >> output.json
         cp output.json ./frontend/mysite.io/public
     - name: Deploy to GH Pages
       uses: peaceiris/actions-gh-pages@v2.5.0

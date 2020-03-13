@@ -21,7 +21,7 @@ jobs:
         python3 -c "
         import pandas as pd
         ex_data = pd.read_csv('https://unplanned.co.za/data.csv', names=['dates', 'unplanned', 'planned'], header=0)
-        ex_data['planned'] = df['planned'].fillna(0) 
+        ex_data['planned'] = ex_data['planned'].fillna(0) 
         print(ex_data.head())" >> output.json
         cp output.json ./frontend/mysite.io/public
     - name: Deploy to GH Pages
